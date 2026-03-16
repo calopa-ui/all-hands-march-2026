@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TopSpin All Hands - Marzo 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #E45925;
+      --cream: #F9EBD0;
+      --bg-light: #FDF5EE;
+      --accent-warm: #F0A97A;
+      --primary-dark: #C24A1F;
+      --dark-accent: #9C3A18;
+      --text-dark: #3D1A0A;
+      --near-black: #1E0D05;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Afacad', Calibri, Arial, sans-serif;
+      color: var(--text-dark);
+      background: #fff;
+      line-height: 1.5;
+    }
+
+    .cover {
+      background: var(--primary);
+      color: #fff;
+      padding: 80px 60px;
+      min-height: 50vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .cover .logo {
+      position: absolute;
+      top: 40px;
+      right: 60px;
+      width: 140px;
+    }
+
+    .cover h1 {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+
+    .cover .subtitle {
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+
+    .cover .date-badge {
+      display: inline-block;
+      background: var(--cream);
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 18px;
+      padding: 8px 20px;
+      border-radius: 8px;
+      margin-top: 24px;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
+
+    .day-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      margin-top: 48px;
+    }
+
+    .day-header:first-child {
+      margin-top: 0;
+    }
+
+    .day-number {
+      background: var(--primary);
+      color: #fff;
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .day-info h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.2;
+    }
+
+    .day-info p {
+      font-size: 15px;
+      color: var(--accent-warm);
+      font-weight: 500;
+    }
+
+    .session {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 0;
+      margin-bottom: 2px;
+    }
+
+    .session .time {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary);
+      padding: 16px 0;
+      text-align: right;
+      padding-right: 24px;
+      border-right: 3px solid var(--cream);
+    }
+
+    .session .details {
+      padding: 16px 0 16px 24px;
+    }
+
+    .session .details h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--near-black);
+      margin-bottom: 4px;
+    }
+
+    .session .details p {
+      font-size: 14px;
+      color: #6b5545;
+      line-height: 1.5;
+    }
+
+    .session.break .details h3 {
+      color: var(--accent-warm);
+      font-weight: 500;
+    }
+
+    .session.fun .time {
+      color: var(--dark-accent);
+    }
+
+    .session.fun .details {
+      background: var(--bg-light);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-left: 24px;
+    }
+
+    .session.fun .details h3 {
+      color: var(--dark-accent);
+    }
+
+    .session.product .details {
+      background: #f3eefa;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-left: 24px;
+    }
+
+    .session.product .details h3 {
+      color: #7C3AED;
+    }
+
+    .session.values .details {
+      background: #ecfeff;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-left: 24px;
+    }
+
+    .session.values .details h3 {
+      color: #0891B2;
+    }
+
+    .attendees {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 8px;
+    }
+
+    .attendees .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: #f0ebe4;
+      color: #6b5545;
+    }
+
+    .attendees .tag.all {
+      background: var(--cream);
+      color: var(--primary);
+    }
+
+    .parallel-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .parallel-label.track-a {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .parallel-label.track-b {
+      background: #7C3AED;
+      color: #fff;
+    }
+
+    .parallel-block {
+      border-left: 3px solid var(--cream);
+      margin-left: 100px;
+      padding: 0 0 0 24px;
+      margin-bottom: 2px;
+    }
+
+    .parallel-block .track {
+      padding: 16px 20px;
+      border-radius: 10px;
+      margin-bottom: 8px;
+    }
+
+    .parallel-block .track.a {
+      background: var(--bg-light);
+    }
+
+    .parallel-block .track.b {
+      background: #f3eefa;
+    }
+
+    .parallel-block .track h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--near-black);
+      margin-bottom: 4px;
+    }
+
+    .parallel-block .track.b h3 {
+      color: #7C3AED;
+    }
+
+    .parallel-block .track p {
+      font-size: 14px;
+      color: #6b5545;
+      line-height: 1.5;
+    }
+
+    .divider {
+      border: none;
+      border-top: 2px solid var(--cream);
+      margin: 48px 0;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 32px 40px;
+      color: var(--accent-warm);
+      font-size: 14px;
+      border-top: 1px solid var(--cream);
+    }
+
+    @media print {
+      .cover { min-height: auto; padding: 40px; }
+      .content { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cover">
+    <svg class="logo" viewBox="0 0 770 770" xmlns="http://www.w3.org/2000/svg">
+      <rect fill="#fff" x="0" y="0" width="699" height="699"/>
+      <path fill="#F9EBD0" d="M0,302.1v240.9s1.2-1.2,1.2-1.2l207.6-206,360.3,363.1h129.9s0-126.7,0-126.7l-361.4-364.2,207.7-206,2.2-2.1h-242.9S0,302.1,0,302.1Z"/>
+    </svg>
+    <p class="subtitle">Offsite Costa Brava &middot; Operaciones y Procesos</p>
+    <h1>All Hands<br>Marzo 2026</h1>
+    <div class="date-badge">Lunes 23 - Martes 24 de Marzo</div>
+  </div>
+
+  <div class="content">
+
+    <!-- DAY 1 -->
+    <div class="day-header">
+      <div class="day-number">1</div>
+      <div class="day-info">
+        <h2>Lunes 23 de Marzo</h2>
+        <p>11:30 - 22:00+ &middot; Sesiones de trabajo + actividad de equipo</p>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="time">11:30</div>
+      <div class="details">
+        <h3>Kickoff: Contexto y Objetivos</h3>
+        <p>Por que estamos aqui: repaso rapido del estado actual de operaciones y que queremos resolver en estas dos jornadas.</p>
+        <div class="attendees"><span class="tag">Calopa</span> <span class="tag">Adri</span> <span class="tag">Pau S.</span> <span class="tag">Pau C.</span> <span class="tag">Sofi</span></div>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="time">12:00</div>
+      <div class="details">
+        <h3>Bienvenida + "SDR Life in a LGaaS Project"</h3>
+        <p>Sofi, nuestra SDR, comparte los retos y areas de mejora de su experiencia en proyectos LGaaS. Una vision desde las trincheras.</p>
+        <div class="attendees"><span class="tag">Calopa</span> <span class="tag">Adri</span> <span class="tag">Pau S.</span> <span class="tag">Pau C.</span> <span class="tag">Sofi</span></div>
+      </div>
+    </div>
+
+    <div class="session product">
+      <div class="time">13:00</div>
+      <div class="details">
+        <h3>SDR Feedback Action Plan</h3>
+        <p>Product + Consulting atacan el feedback de Sofi punto por punto. Para cada tema: solucion propuesta, owner y deadline.</p>
+        <div class="attendees"><span class="tag">Adri</span> <span class="tag">Pau S.</span> <span class="tag">Pau C.</span></div>
+      </div>
+    </div>
+
+    <div class="session fun">
+      <div class="time">14:00</div>
+      <div class="details">
+        <h3>Comida + Cafe</h3>
+        <p>Pausa para comer y recargar pilas.</p>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="time">15:00<br><span style="font-size:11px;color:var(--accent-warm);font-weight:500">a 18:00</span></div>
+      <div class="details" style="font-size:13px;font-weight:600;color:var(--primary);margin-bottom:4px;">Sesiones en paralelo</div>
+    </div>
+
+    <div class="parallel-block">
+      <div class="track a">
+        <span class="parallel-label track-a">Track A</span>
+        <h3>Comercial Time</h3>
+        <p>Sesion comercial dedicada: revision de pipeline, estrategia y proximos pasos.</p>
+        <div class="attendees"><span class="tag">Calopa</span> <span class="tag">Sofi</span></div>
+      </div>
+      <div class="track b">
+        <span class="parallel-label track-b">Track B</span>
+        <h3>Producto + Consulting Needs + Trabajo Foco</h3>
+        <p>Definicion de necesidades de producto, new needs del equipo de consulting, y tiempo de trabajo foco entre todos.</p>
+        <div class="attendees"><span class="tag">Adri</span> <span class="tag">Pau S.</span> <span class="tag">Pau C.</span></div>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="time">18:00</div>
+      <div class="details">
+        <h3>Usuarios y uso de LemList</h3>
+        <p>Que usuarios tenemos y como los usamos en LemList? Sesion liderada por Pau C. y Pau S. (preparada antes del offsite).</p>
+        <div class="attendees"><span class="tag">Pau C.</span> <span class="tag">Pau S.</span> <span class="tag">Calopa</span> <span class="tag">Adri</span> <span class="tag">Sofi</span></div>
+      </div>
+    </div>
+
+    <div class="session break">
+      <div class="time">18:30</div>
+      <div class="details">
+        <h3>Fin de sesiones - Tiempo libre</h3>
+      </div>
+    </div>
+
+    <div class="session fun">
+      <div class="time">18:45</div>
+      <div class="details">
+        <h3>Running a Calella de Palafrugell</h3>
+        <p>Salida grupal corriendo. Zapatillas y ganas de moverse.</p>
+        <div class="attendees"><span class="tag">Calopa</span> <span class="tag">Adri</span> <span class="tag">Pau S.</span> <span class="tag">Pau C.</span> <span class="tag">Sofi</span></div>
+      </div>
+    </div>
+
+    <div class="session fun">
+      <div class="time">~20:30</div>
+      <div class="details">
+        <h3>Tiempo libre</h3>
+        <p>Duchas, paseo, cerveza... esperamos a que llegue Giacomo.</p>
+      </div>
+    </div>
+
+    <div class="session fun">
+      <div class="time">22:00</div>
+      <div class="details">
+        <h3>Cena: Pizzas + Party &amp; Co</h3>
+        <p>Pizzas con Giacomo y torneo de Party &amp; Co. Sin hora de cierre.</p>
+        <div class="attendees"><span class="tag">Calopa</span> <span class="tag">Adri</span> <span class="tag">Pau S.</span> <span class="tag">Pau C.</span> <span class="tag">Sofi</span> <span class="tag">Giacomo</span></div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- DAY 2 -->
+    <div class="day-header">
+      <div class="day-number">2</div>
+      <div class="day-info">
+        <h2>Martes 24 de Marzo</h2>
+        <p>08:00 - 16:45 &middot; Producto + sesiones de trabajo + valores + vuelta a Barcelona</p>
+      </div>
+    </div>
+
+    <div class="session fun">
+      <div class="time">08:00</div>
+      <div class="details">
+        <h3>Personal Time</h3>
+        <p>Cafe + puesta al dia. Arrancamos el dia con calma.</p>
+        <div class="attendees"><span class="tag all">Todos</span> <span class="tag">Calopa</span> <span class="tag">Adri</span> <span class="tag">Pau S.</span> <span class="tag">Nico</span> <span class="tag">Pau C.</span> <span class="tag">Giacomo</span> <span class="tag">Sofi</span></div>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="time">09:00</div>
+      <div class="details">
+        <h3>Revision de Agenda del Dia</h3>
+        <p>Calopa revisa la agenda del martes, recap rapido y foco para las sesiones de hoy.</p>
+        <div class="attendees"><span class="tag all">Todos</span> <span class="tag">Calopa</span> <span class="tag">Adri</span> <span class="tag">Pau S.</span> <span class="tag">Nico</span> <span class="tag">Pau C.</span> <span class="tag">Giacomo</span> <span class="tag">Sofi</span></div>
+      </div>
+    </div>
+
+    <div class="session break">
+      <div class="time">09:30</div>
+      <div class="details">
+        <h3>Break</h3>
+      </div>
+    </div>
+
+    <div class="session product">
+      <div class="time">10:00</div>
+      <div class="details">
+        <h3>Presentacion Nueva Web (Nico)</h3>
+        <p>Nico presenta la nueva web de TopSpin al equipo completo.</p>
+        <div class="attendees"><span class="tag all">Todos</span> <span class="tag">Calopa</span> <span class="tag">Adri</span> <span class="tag">Pau S.</span> <span class="tag">Nico</span> <span class="tag">Pau C.</span> <span class="tag">Giacomo</span> <span class="tag">Sofi</span></div>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="time">10:30<br><span style="font-size:11px;color:var(--accent-warm);font-weight:500">a 12:00</span></div>
+      <div class="details" style="font-size:13px;font-weight:600;color:var(--primary);margin-bottom:4px;">Sesiones en paralelo</div>
+    </div>
+
+    <div class="parallel-block">
+      <div class="track a">
+        <span class="parallel-label track-a">Track A</span>
+        <h3>Targeting Framework con Claude + Q&amp;A + Caso de Uso</h3>
+        <p>Pau S. lidera la sesion sobre el uso de la herramienta de Targeting Framework con Claude. Q&amp;A y caso de uso practico con los consultores.</p>
+        <div class="attendees"><span class="tag">Pau S.</span> <span class="tag">Calopa</span> <span class="tag">Adri</span> <span class="tag">Nico</span> <span class="tag">Pau C.</span> <span class="tag">Giacomo</span></div>
+      </div>
+      <div class="track b">
+        <span class="parallel-label track-b">Track B</span>
+        <h3>Comercial Time</h3>
+        <p>Sofi en sesion comercial dedicada (hasta las 13:00).</p>
+        <div class="attendees"><span class="tag">Sofi</span></div>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="time">12:00<br><span style="font-size:11px;color:var(--accent-warm);font-weight:500">a 13:00</span></div>
+      <div class="details" style="font-size:13px;font-weight:600;color:var(--primary);margin-bottom:4px;">Sesiones en paralelo</div>
+    </div>
+
+    <div class="parallel-block">
+      <div class="track b">
+        <span class="parallel-label track-b">Track A &mdash; Producto</span>
+        <h3>Trabajo conjunto Producto</h3>
+        <p>El equipo de producto trabaja junto: temas internos, alineacion y ejecucion.</p>
+        <div class="attendees"><span class="tag">Pau S.</span> <span class="tag">Nico</span></div>
+      </div>
+      <div class="track a">
+        <span class="parallel-label track-a">Track B &mdash; Consulting + CEO</span>
+        <h3>Logicas de Cold Outbound</h3>
+        <p>Brainstorming: re-engagement, re-targeting, logicas complementarias y nuevas estrategias de outbound.</p>
+        <div class="attendees"><span class="tag">Calopa</span> <span class="tag">Adri</span> <span class="tag">Pau C.</span> <span class="tag">Giacomo</span></div>
+      </div>
+    </div>
+
+    <div class="session break">
+      <div class="time">13:00</div>
+      <div class="details">
+        <h3>Break</h3>
+      </div>
+    </div>
+
+    <div class="session values">
+      <div class="time">13:30</div>
+      <div class="details">
+        <h3>Valores de TopSpin Co</h3>
+        <p>Mini juego y dinamica liderada por Calopa. Presentacion de los valores de TopSpin.</p>
+        <div class="attendees"><span class="tag all">Todos</span> <span class="tag">Calopa</span> <span class="tag">Adri</span> <span class="tag">Pau S.</span> <span class="tag">Nico</span> <span class="tag">Pau C.</span> <span class="tag">Giacomo</span> <span class="tag">Sofi</span></div>
+      </div>
+    </div>
+
+    <div class="session fun">
+      <div class="time">14:30</div>
+      <div class="details">
+        <h3>Comida de Cierre</h3>
+        <p>Comida en equipo para cerrar el offsite.</p>
+        <div class="attendees"><span class="tag all">Todos</span></div>
+      </div>
+    </div>
+
+    <div class="session break">
+      <div class="time">16:00</div>
+      <div class="details">
+        <h3>Free time</h3>
+      </div>
+    </div>
+
+    <div class="session fun">
+      <div class="time">16:45</div>
+      <div class="details">
+        <h3>Salida direccion Barcelona</h3>
+        <p>Recogemos y nos vamos. Fin del offsite!</p>
+        <div class="attendees"><span class="tag all">Todos</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    TopSpin Revenue Operations &middot; topspin.es
+  </div>
+
+</body>
+</html>
